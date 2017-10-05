@@ -1,0 +1,367 @@
+<style>
+	#t00,#t01,#t10,#t11
+		{
+		border-style:solid;
+		border-right-color:red;
+		border-top-color:white;
+		border-left-color:white;
+		border-bottom-color:red;
+		width:33.9%;
+		font-weight:bold;
+		}
+	h1
+		{
+		color:green;
+		font-weight:bold;
+		text-shadow:4px 4px 2px yellow;
+		}
+	#t02,#t12
+		{
+		border-style:solid;
+		border-bottom-color:red;
+		border-top-color:white;
+		border-left-color:white;
+		border-right-color:white;
+		width:33.9%;
+		font-weight:bold;
+		}
+	#t20,#t21
+		{
+		border-style:solid;
+		border-right-color:red;
+		border-top-color:white;
+		border-bottom-color:white;
+		border-left-color:white;
+		width:33.9%;
+		font-weight:bold;
+		}
+	#t22
+		{
+		font-weight:bold;
+		}
+</style>
+
+<html>
+<body>
+	<center>
+	<h1>Tic-Tac-Toe</h1>
+	<h1>You are "X" and "O" is Machine</h1>
+	<table width="20%" cellspacing="0px" cellpadding="30%">
+		<tr>
+			<td id="t00" onclick="tic_tac(0)" >Z</td>
+			<td id="t01" onclick="tic_tac(1)" >Z</td>
+			<td id="t02" onclick="tic_tac(2)" >Z</td>
+		</tr>
+
+		<tr>
+			<td id="t10" onclick="tic_tac(10)" >Z</td>
+			<td id="t11" onclick="tic_tac(11)" >Z</td>
+			<td id="t12" onclick="tic_tac(12)" >Z</td>
+		</tr>
+
+		<tr>
+			<td id="t20" onclick="tic_tac(20)" >Z</td>
+			<td id="t21" onclick="tic_tac(21)" >Z</td>
+			<td id="t22" onclick="tic_tac(22)" >Z</td>
+		</tr>
+	</table>
+	<br>
+	<input type="button" value="RESET" onclick="ref()"/>
+	</center>
+	</body>
+</html>
+<script>
+	function tic_tac(p)
+		{
+		for(i=0;i<3;i++)
+			{
+			for(j=0;j<3;j++)
+				{
+				if(p==(i*10+j))
+					{
+					var v1=document.getElementById("t"+i+""+j+"");
+					if(v1.innerHTML=="Z" || v1.innerHTML=="")
+						{
+						v1.innerHTML="X";
+						check();
+						}
+					}
+				}
+			}
+		}
+	function check()
+		{
+		var arr=new Array();
+		var k=0;
+		for(i=0;i<3;i++)
+			{
+			for(j=0;j<3;j++)
+				{
+				arr[k]=document.getElementById("t"+i+""+j+"");
+				k++;
+				}
+			}
+		if((arr[0].innerHTML=="X" && arr[1].innerHTML=="X" && arr[2].innerHTML=="X")||(arr[3].innerHTML=="X" && arr[4].innerHTML=="X" && arr[5].innerHTML=="X")||(arr[6].innerHTML=="X" && arr[7].innerHTML=="X" && arr[8].innerHTML=="X")||(arr[0].innerHTML=="X" && arr[3].innerHTML=="X" && arr[6].innerHTML=="X")||(arr[1].innerHTML=="X" && arr[4].innerHTML=="X" && arr[7].innerHTML=="X")||(arr[2].innerHTML=="X" && arr[5].innerHTML=="X" && arr[8].innerHTML=="X")||(arr[0].innerHTML=="X" && arr[4].innerHTML=="X" && arr[8].innerHTML=="X")||(arr[2].innerHTML=="X" && arr[4].innerHTML=="X" && arr[6].innerHTML=="X"))
+			{
+			alert("X wins");
+			}
+
+		else if(arr[0].innerHTML=="O" && arr[1].innerHTML=="O" && arr[2].innerHTML=="Z")
+			{
+			arr[2].innerHTML="O";
+			}
+		else if(arr[0].innerHTML=="O" && arr[2].innerHTML=="O" && arr[1].innerHTML=="Z")
+			{
+			arr[1].innerHTML="O";
+			}
+		else if(arr[1].innerHTML=="O" && arr[2].innerHTML=="O" && arr[0].innerHTML=="Z")
+			{
+			arr[0].innerHTML="O";
+			}
+
+		else if(arr[3].innerHTML=="O" && arr[4].innerHTML=="O" && arr[5].innerHTML=="Z")
+			{
+			arr[5].innerHTML="O";
+			}
+		else if(arr[3].innerHTML=="O" && arr[5].innerHTML=="O" && arr[4].innerHTML=="Z")
+			{
+			arr[4].innerHTML="O";
+			}
+		else if(arr[4].innerHTML=="O" && arr[5].innerHTML=="O" && arr[3].innerHTML=="Z")
+			{
+			arr[3].innerHTML="O";
+			}
+
+		else if(arr[6].innerHTML=="O" && arr[7].innerHTML=="O" && arr[8].innerHTML=="Z")
+			{
+			arr[8].innerHTML="O";
+			}
+		else if(arr[6].innerHTML=="O" && arr[8].innerHTML=="O" && arr[7].innerHTML=="Z")
+			{
+			arr[7].innerHTML="O";
+			}
+		else if(arr[7].innerHTML=="O" && arr[8].innerHTML=="O" && arr[6].innerHTML=="Z")
+			{
+			arr[6].innerHTML="O";
+			}
+
+		else if(arr[0].innerHTML=="O" && arr[3].innerHTML=="O" && arr[6].innerHTML=="Z")
+			{
+			arr[6].innerHTML="O";
+			}
+		else if(arr[0].innerHTML=="O" && arr[6].innerHTML=="O" && arr[3].innerHTML=="Z")
+			{
+			arr[3].innerHTML="O";
+			}
+		else if(arr[3].innerHTML=="O" && arr[6].innerHTML=="O" && arr[0].innerHTML=="Z")
+			{
+			arr[0].innerHTML="O";
+			}
+
+		else if(arr[1].innerHTML=="O" && arr[4].innerHTML=="O" && arr[7].innerHTML=="Z")
+			{
+			arr[7].innerHTML="O";
+			}
+		else if(arr[1].innerHTML=="O" && arr[7].innerHTML=="O" && arr[4].innerHTML=="Z")
+			{
+			arr[4].innerHTML="O";
+			}
+		else if(arr[7].innerHTML=="O" && arr[4].innerHTML=="O" && arr[1].innerHTML=="Z")
+			{
+			arr[1].innerHTML="O";
+			}
+
+		else if(arr[2].innerHTML=="O" && arr[5].innerHTML=="O" && arr[8].innerHTML=="Z")
+			{
+			arr[8].innerHTML="O";
+			}
+		else if(arr[2].innerHTML=="O" && arr[8].innerHTML=="O" && arr[5].innerHTML=="Z")
+			{
+			arr[5].innerHTML="O";
+			}
+		else if(arr[5].innerHTML=="O" && arr[8].innerHTML=="O" && arr[2].innerHTML=="Z")
+			{
+			arr[2].innerHTML="O";
+			}
+
+		else if(arr[0].innerHTML=="O" && arr[4].innerHTML=="O" && arr[8].innerHTML=="Z")
+			{
+			arr[8].innerHTML="O";
+			}
+		else if(arr[0].innerHTML=="O" && arr[8].innerHTML=="O" && arr[4].innerHTML=="Z")
+			{
+			arr[4].innerHTML="O";
+			}
+		else if(arr[4].innerHTML=="O" && arr[8].innerHTML=="O" && arr[0].innerHTML=="Z")
+			{
+			arr[0].innerHTML="O";
+			}
+
+		else if(arr[2].innerHTML=="O" && arr[4].innerHTML=="O" && arr[6].innerHTML=="Z")
+			{
+			arr[6].innerHTML="O";
+			}
+		else if(arr[2].innerHTML=="O" && arr[6].innerHTML=="O" && arr[4].innerHTML=="Z")
+			{
+			arr[4].innerHTML="O";
+			}
+		else if(arr[4].innerHTML=="O" && arr[6].innerHTML=="O" && arr[2].innerHTML=="Z")
+			{
+			arr[2].innerHTML="O";
+			}
+
+		else if(arr[0].innerHTML=="X" && arr[1].innerHTML=="X" && arr[2].innerHTML=="Z")
+			{
+			arr[2].innerHTML="O";
+			}
+		else if(arr[0].innerHTML=="X" && arr[2].innerHTML=="X" && arr[1].innerHTML=="Z")
+			{
+			arr[1].innerHTML="O";
+			}
+		else if(arr[1].innerHTML=="X" && arr[2].innerHTML=="X" && arr[0].innerHTML=="Z")
+			{
+			arr[0].innerHTML="O";
+			}
+
+		else if(arr[3].innerHTML=="X" && arr[4].innerHTML=="X" && arr[5].innerHTML=="Z")
+			{
+			arr[5].innerHTML="O";
+			}
+		else if(arr[3].innerHTML=="X" && arr[5].innerHTML=="X" && arr[4].innerHTML=="Z")
+			{
+			arr[4].innerHTML="O";
+			}
+		else if(arr[4].innerHTML=="X" && arr[5].innerHTML=="X" && arr[3].innerHTML=="Z")
+			{
+			arr[3].innerHTML="O";
+			}
+
+		else if(arr[6].innerHTML=="X" && arr[7].innerHTML=="X" && arr[8].innerHTML=="Z")
+			{
+			arr[8].innerHTML="O";
+			}
+		else if(arr[6].innerHTML=="X" && arr[8].innerHTML=="X" && arr[7].innerHTML=="Z")
+			{
+			arr[7].innerHTML="O";
+			}
+		else if(arr[7].innerHTML=="X" && arr[8].innerHTML=="X" && arr[6].innerHTML=="Z")
+			{
+			arr[6].innerHTML="O";
+			}
+
+		else if(arr[0].innerHTML=="X" && arr[3].innerHTML=="X" && arr[6].innerHTML=="Z")
+			{
+			arr[6].innerHTML="O";
+			}
+		else if(arr[0].innerHTML=="X" && arr[6].innerHTML=="X" && arr[3].innerHTML=="Z")
+			{
+			arr[3].innerHTML="O";
+			}
+		else if(arr[3].innerHTML=="X" && arr[6].innerHTML=="X" && arr[0].innerHTML=="Z")
+			{
+			arr[0].innerHTML="O";
+			}
+
+		else if(arr[1].innerHTML=="X" && arr[4].innerHTML=="X" && arr[7].innerHTML=="Z")
+			{
+			arr[7].innerHTML="O";
+			}
+		else if(arr[1].innerHTML=="X" && arr[7].innerHTML=="X" && arr[4].innerHTML=="Z")
+			{
+			arr[4].innerHTML="O";
+			}
+		else if(arr[7].innerHTML=="X" && arr[4].innerHTML=="X" && arr[1].innerHTML=="Z")
+			{
+			arr[1].innerHTML="O";
+			}
+
+		else if(arr[2].innerHTML=="X" && arr[5].innerHTML=="X" && arr[8].innerHTML=="Z")
+			{
+			arr[8].innerHTML="O";
+			}
+		else if(arr[2].innerHTML=="X" && arr[8].innerHTML=="X" && arr[5].innerHTML=="Z")
+			{
+			arr[5].innerHTML="O";
+			}
+		else if(arr[5].innerHTML=="X" && arr[8].innerHTML=="X" && arr[2].innerHTML=="Z")
+			{
+			arr[2].innerHTML="O";
+			}
+
+		else if(arr[0].innerHTML=="X" && arr[4].innerHTML=="X" && arr[8].innerHTML=="Z")
+			{
+			arr[8].innerHTML="O";
+			}
+		else if(arr[0].innerHTML=="X" && arr[8].innerHTML=="X" && arr[4].innerHTML=="Z")
+			{
+			arr[4].innerHTML="O";
+			}
+		else if(arr[4].innerHTML=="X" && arr[8].innerHTML=="X" && arr[0].innerHTML=="Z")
+			{
+			arr[0].innerHTML="O";
+			}
+
+		else if(arr[2].innerHTML=="X" && arr[4].innerHTML=="X" && arr[6].innerHTML=="Z")
+			{
+			arr[6].innerHTML="O";
+			}
+		else if(arr[2].innerHTML=="X" && arr[6].innerHTML=="X" && arr[4].innerHTML=="Z")
+			{
+			arr[4].innerHTML="O";
+			}
+		else if(arr[4].innerHTML=="X" && arr[6].innerHTML=="X" && arr[2].innerHTML=="Z")
+			{
+			arr[2].innerHTML="O";
+			}
+		else if(arr[4].innerHTML=="Z")
+			{
+			arr[4].innerHTML="O";
+			}
+		else if(arr[4].innerHTML=="X" && arr[4].innerHTML=="Z")
+			{
+			arr[0].innerHTML="O";
+			}
+		else if(arr[2].innerHTML=="Z")
+			{
+			arr[2].innerHTML="O";
+			}
+		else if(arr[6].innerHTML=="Z")
+			{
+			arr[6].innerHTML="O";
+			}
+
+		else if(arr[0].innerHTML=="Z")
+			{
+			arr[0].innerHTML="O";
+			}
+		else if(arr[1].innerHTML=="Z")
+			{
+			arr[1].innerHTML="O";
+			}
+
+		else if(arr[3].innerHTML=="Z")
+			{
+			arr[3].innerHTML="O";
+			}
+		else if(arr[5].innerHTML=="Z")
+			{
+			arr[5].innerHTML="O";
+			}
+		else if(arr[7].innerHTML=="Z")
+			{
+			arr[7].innerHTML="O";
+			}
+		else if(arr[8].innerHTML=="Z")
+			{
+			arr[8].innerHTML="O";
+			}
+		if((arr[0].innerHTML=="O" && arr[1].innerHTML=="O" && arr[2].innerHTML=="O")||(arr[3].innerHTML=="O" && arr[4].innerHTML=="O" && arr[5].innerHTML=="O")||(arr[6].innerHTML=="O" && arr[7].innerHTML=="O" && arr[8].innerHTML=="O")||(arr[0].innerHTML=="O" && arr[3].innerHTML=="O" && arr[6].innerHTML=="O")||(arr[1].innerHTML=="O" && arr[4].innerHTML=="O" && arr[7].innerHTML=="O")||(arr[2].innerHTML=="O" && arr[5].innerHTML=="O" && arr[8].innerHTML=="O")||(arr[0].innerHTML=="O" && arr[4].innerHTML=="O" && arr[8].innerHTML=="O")||(arr[2].innerHTML=="O" && arr[4].innerHTML=="O" && arr[6].innerHTML=="O"))
+			{
+			alert("O wins");
+			}
+		}
+	function ref()
+		{
+		location.reload();
+		}
+</script>
